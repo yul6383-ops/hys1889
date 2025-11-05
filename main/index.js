@@ -57,7 +57,8 @@ exports.sendInquiry = onRequest(async (req, res) => {
     products.forEach((item, index) => {
       message += `${index + 1}. ${item.name}\n`;
       message += `   📦 제품코드: ${item.code}\n`;
-      message += `   📁 카테고리: ${item.mainCategory} / ${item.category}\n\n`;
+      message += `   📁 카테고리: ${item.mainCategory} / ${item.category}\n`;
+      message += `   🔢 수량: ${item.quantity || 1}개\n\n`;
     });
     
     message += `━━━━━━━━━━━━━━━\n`;
