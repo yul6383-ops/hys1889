@@ -183,9 +183,10 @@ document.addEventListener('click', function(e) {
             code: productCode,
             image: productImage,
             category: category,
-            mainCategory: mainCategory
+            mainCategory: mainCategory,
+            quantity: 1  // 기본 수량 1
         };
-        
+
         if (e.target.textContent === '♡') {
             // 찜하기 추가
             e.target.textContent = '♥';
@@ -308,11 +309,12 @@ function shareProduct() {
         code: productCode,
         image: productImage,
         category: category,
-        mainCategory: mainCategory
+        mainCategory: mainCategory,
+        quantity: 1  // 기본 수량 1
     };
-    
+
     const isWishlisted = wishlist.some(item => item.code === productCode);
-    
+
     if (!isWishlisted) {
         // 찜하기 추가
         wishlist.push(productData);
