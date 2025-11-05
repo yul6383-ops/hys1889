@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0, user-scalable=no, 
+    maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="order.css">
+    <title>Document</title>
+</head>
+<body>
+
+<a href="wishlist.html" class="wishlist-link">
+    <span class="wishlist-icon">🛒</span>
+    <span class="wishlist-count">0</span>
+</a>
+
+
+<!-- -------------------맨위 로고 이미--------------------------------------------- -->
+
+    <div class="메뉴">
+    
+        <div class="상단">
+             <a href="index.html">
+            <img src="images/HYSLOGS.png" alt="하예성합판 로고" class="logo">
+        </a>
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext">하 예 성 합 판</div>
+            </a>
+        
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext1">interior materials</div>
+            </a>
+        
+        </div>
+    
+</div>
+<!-- -----------------로고 밑---------------------------------------------------- -->
+<div class="메뉴2">
+    
+    <div class="line top-line"></div>
+    
+    <div class="boxtext">
+        <a href="brand.html">업체소개</a>
+        <a href="JEPOM.html">제품안내</a>
+        <a href="goji.html">공지사항</a>
+        <a href="root.html">오시는길</a>
+        <a href="order.html">문의하기</a>
+    </div>
+   
+    <div class="line bottom-line"></div>    
+
+</div>
+<!-- ------------------------------견적 문의----------------------------------- -->
+
+
+<section class="contact-section">
+    <div class="contact-line"></div>
+    <h2 class="contact-title">건적문의</h2>
+    <p class="contact-subtitle">질문에 대한 궁금증을 해결해드립니다.</p>
+    
+    <div class="write-container">
+        <form id="writeForm">
+            <table class="write-table">
+                <tr>
+                    <th>작성자</th>
+                    <td><input type="text" id="author" required></td>
+                </tr>
+                <tr>
+                    <th>비밀글</th>
+                    <td><label><input type="checkbox" id="isSecret"> 비밀글</label></td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td><input type="password" id="password" required></td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td><input type="text" id="title" required></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><textarea id="content" rows="15" required></textarea></td>
+                </tr>
+            </table>
+            
+            <div class="button-group">
+                <button type="button" class="cancel-btn" onclick="location.href='order.html'">목록</button>
+                <button type="submit" class="submit-btn">작성</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+</body>
+</html>
+
+<!-- ------------------------------------제일 하단------------------------------- -->
+
+<!-- 푸터 -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3>고객센터 <span class="phone">010-7654-6766, 010-9307-1889</span></h3>
+                <p>평일 오전 6시30분 ~ 오후 5시 (일요일 및 공휴일 휴무)</p>
+            </div>
+            <div class="footer-buttons">
+                <button class="kakao-btn">상담하기 💬</button>
+                <button class="faq-btn">FAQ/문의하기</button>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="menu-column">
+                <h4>브랜드 소개</h4>
+                <a href="#">하예성합판 소개</a>
+                <a href="#">대표인사말</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[잔체 중문 혜택] 뭉치면 싸진다!</h4>
+                <a href="#">이벤트 안내 보기</a>
+                <a href="#">단체 공동구매 신청하기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[영림 회원 전용]30주년 문짝할인 이벤트!</h4>
+                <a href="#">혜택 자세히 보기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>영림 보급형대량세일</h4>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>합판 자재 문의</h4>
+            </div>
+            <div class="menu-column">
+                <h4>서비스</h4>
+                <a href="#">공지사항</a>
+                <a href="#">자주묻는질문</a>
+                <a href="#">기획전</a>
+                <a href="#">이벤트</a>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-links">
+                <a href="#">공지사항</a> | 
+                <a href="#">이용약관</a> | 
+                <a href="#">개인정보처리방침</a> | 
+                <a href="#">하예성합판보험</a>
+            </div>
+            <p>상호: 하예성합판 | 대표: 이희열 | 주소: 경기도 김포시 고촌읍 태리로37 2층 </p>
+            <p>대표번호: 010-7654-6766 | 이메일: eh1048@naver.com | 팩스: 사업자등록번호: 675-15-02806 | 통신판매업신고번호: 미정</p>
+            <p class="copyright">Copyright @ 하예성합판 All Rights Reserved.<br>Powered by Eoding Corp.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ---------------------------------스크립 -->
+
+<script type="module">
+// Firebase 모듈 가져오기
+import { db, collection, addDoc } from './firebacs-config.js';
+
+// 폼 제출 처리
+document.getElementById('writeForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const newPost = {
+        author: document.getElementById('author').value,
+        password: document.getElementById('password').value,
+        title: document.getElementById('title').value,
+        content: document.getElementById('content').value,
+        isSecret: document.getElementById('isSecret').checked,
+        date: new Date().toISOString().split('T')[0],
+        createdAt: new Date(),
+        views: 0
+    };
+    
+    try {
+        await addDoc(collection(db, 'posts'), newPost);
+        alert('게시글이 등록되었습니다.');
+        window.location.href = 'order.html';
+    } catch (error) {
+        console.error('게시글 등록 오류:', error);
+        alert('게시글 등록 중 오류가 발생했습니다: ' + error.message);
+    }
+});
+</script>
+
+<script src="wishlist-common.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="order.css">
+    <title>게시글 상세보기</title>
+</head>
+<body>
+
+<a href="wishlist.html" class="wishlist-link">
+    <span class="wishlist-icon">🛒</span>
+    <span class="wishlist-count">0</span>
+</a>
+
+
+
+    <div class="메뉴">
+    
+        <div class="상단">
+             <a href="index.html">
+            <img src="images/HYSLOGS.png" alt="하예성합판 로고" class="logo">
+        </a>
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext">하 예 성 합 판</div>
+            </a>
+        
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext1">interior materials</div>
+            </a>
+        
+        </div>
+    
+</div>
+
+<div class="메뉴2">
+    
+    <div class="line top-line"></div>
+    
+    <div class="boxtext">
+        <a href="brand.html">업체소개</a>
+        <a href="JEPOM.html">제품안내</a>
+        <a href="goji.html">공지사항</a>
+        <a href="root.html">오시는길</a>
+        <a href="order.html">문의하기</a>
+    </div>
+   
+    <div class="line bottom-line"></div>    
+
+</div>
+
+<section class="contact-section">
+    <div class="contact-line"></div>
+    <h2 class="contact-title">건적문의</h2>
+    <p class="contact-subtitle">질문에 대한 궁금증을 해결해드립니다.</p>
+    
+    <div class="write-container">
+        <table class="write-table">
+            <tr>
+                <th>작성자</th>
+                <td id="viewAuthor"></td>
+            </tr>
+            <tr>
+                <th>작성일</th>
+                <td id="viewDate"></td>
+            </tr>
+            <tr>
+                <th>조회수</th>
+                <td id="viewViews"></td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td id="viewTitle"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td>
+                    <div id="viewContent" style="min-height: 300px; padding: 15px; white-space: pre-wrap;"></div>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="button-group">
+            <button type="button" class="cancel-btn" onclick="location.href='order.html'">목록</button>
+            <button type="button" class="edit-btn" onclick="editPost()" style="background-color: #28a745;">수정</button>
+            <button type="button" class="submit-btn" onclick="deleteCurrentPost()" style="background-color: #dc3545;">삭제</button>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3>고객센터 <span class="phone">010-7654-6766, 010-9307-1889</span></h3>
+                <p>평일 오전 6시30분 ~ 오후 5시 (일요일 및 공휴일 휴무)</p>
+            </div>
+            <div class="footer-buttons">
+                <button class="kakao-btn">상담하기 💬</button>
+                <button class="faq-btn">FAQ/문의하기</button>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="menu-column">
+                <h4>브랜드 소개</h4>
+                <a href="#">하예성합판 소개</a>
+                <a href="#">대표인사말</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[잔체 중문 혜택] 뭉치면 싸진다!</h4>
+                <a href="#">이벤트 안내 보기</a>
+                <a href="#">단체 공동구매 신청하기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[영림 회원 전용]30주년 문짝할인 이벤트!</h4>
+                <a href="#">혜택 자세히 보기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>영림 보급형대량세일</h4>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>합판 자재 문의</h4>
+            </div>
+            <div class="menu-column">
+                <h4>서비스</h4>
+                <a href="#">공지사항</a>
+                <a href="#">자주묻는질문</a>
+                <a href="#">기획전</a>
+                <a href="#">이벤트</a>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-links">
+                <a href="#">공지사항</a> | 
+                <a href="#">이용약관</a> | 
+                <a href="#">개인정보처리방침</a> | 
+                <a href="#">하예성합판보험</a>
+            </div>
+            <p>상호: 하예성합판 | 대표: 이희열 | 주소: 경기도 김포시 고촌읍 태리로37 2층 </p>
+            <p>대표번호: 010-7654-6766 | 이메일: eh1048@naver.com | 팩스: 사업자등록번호: 675-15-02806 | 통신판매업신고번호: 미정</p>
+            <p class="copyright">Copyright @ 하예성합판 All Rights Reserved.<br>Powered by Eoding Corp.</p>
+        </div>
+    </div>
+</footer>
+<!-- -----------------------------------------------스크립 수정 -->
+<script type="module">
+// Firebase 모듈 가져오기
+import { db, collection, addDoc, getDocs, getDoc, doc, updateDoc, deleteDoc, increment } from './firebacs-config.js';
+
+let currentPostId;
+
+// 페이지 로드시 게시글 표시
+window.addEventListener('DOMContentLoaded', async function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    currentPostId = urlParams.get('id');
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    
+    if (!currentPostId) {
+        alert('게시글을 찾을 수 없습니다.');
+        location.href = 'order.html';
+        return;
+    }
+    
+    try {
+        const docRef = doc(db, 'posts', currentPostId);
+        const docSnap = await getDoc(docRef);
+        
+        if (!docSnap.exists()) {
+            alert('게시글을 찾을 수 없습니다.');
+            location.href = 'order.html';
+            return;
+        }
+        
+        const post = docSnap.data();
+        
+        // 비밀글 확인
+        if (post.isSecret && !isAdmin) {
+            const inputPassword = prompt('비밀번호를 입력하세요:');
+            if (inputPassword !== post.password) {
+                alert('비밀번호가 일치하지 않습니다.');
+                location.href = 'order.html';
+                return;
+            }
+        }
+        
+        // 조회수 증가
+        await updateDoc(docRef, {
+            views: increment(1)
+        });
+        
+        // 게시글 내용 표시
+        document.getElementById('viewAuthor').textContent = post.author;
+        document.getElementById('viewDate').textContent = post.date;
+        document.getElementById('viewViews').textContent = (post.views || 0) + 1;
+        document.getElementById('viewTitle').textContent = (post.isSecret ? '🔒 ' : '') + post.title;
+        document.getElementById('viewContent').textContent = post.content;
+        
+    } catch (error) {
+        console.error('게시글 로딩 오류:', error);
+        alert('게시글을 불러오는 중 오류가 발생했습니다.');
+        location.href = 'order.html';
+    }
+});
+
+// 비밀번호 확인 함수
+async function checkPassword() {
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    
+    // 관리자는 비밀번호 확인 없이 통과
+    if (isAdmin) {
+        return true;
+    }
+    
+    try {
+        const docRef = doc(db, 'posts', currentPostId);
+        const docSnap = await getDoc(docRef);
+        const post = docSnap.data();
+        
+        const inputPassword = prompt('게시글 비밀번호를 입력하세요:');
+        if (inputPassword === post.password) {
+            return true;
+        } else {
+            alert('비밀번호가 일치하지 않습니다.');
+            return false;
+        }
+    } catch (error) {
+        console.error('비밀번호 확인 오류:', error);
+        return false;
+    }
+}
+
+// 삭제 함수
+window.deleteCurrentPost = async function() {
+    if (!await checkPassword()) {
+        return;
+    }
+    
+    if (confirm('정말 삭제하시겠습니까?')) {
+        try {
+            await deleteDoc(doc(db, 'posts', currentPostId));
+            alert('게시글이 삭제되었습니다.');
+            location.href = 'order.html';
+        } catch (error) {
+            console.error('삭제 오류:', error);
+            alert('삭제 중 오류가 발생했습니다.');
+        }
+    }
+}
+
+// 수정 함수
+window.editPost = async function() {
+    if (!await checkPassword()) {
+        return;
+    }
+    
+    location.href = `order-edit.html?id=${currentPostId}`;
+}
+</script>
+
+<script src="wishlist-common.js"></script>
+
+</body>
+</html>

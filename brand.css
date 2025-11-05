@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.메뉴 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.상단 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logotext {
+    font-size: 32px;
+    font-weight: bold;
+    color: rgba(122, 66, 9, 0.719);
+}
+
+.logotext1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(122, 66, 9, 0.719);
+}
+
+
+
+.메뉴2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.boxtext {
+    display: flex;
+    justify-content: center;
+    gap: clamp(15px, 3vw, 40px);
+    margin-top: 10px;
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: bold;
+    color: #333;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.boxtext a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.boxtext a:hover {
+    color: #666;
+    transform: translateY(-2px);
+}
+
+.boxtext a:visited {
+    color: #333;
+}
+
+.line{
+    width: 100vw;
+    height: 2px;
+    background-color: black;
+}
+
+.top-line{
+    opacity: 0.1;
+}
+
+.bottom-line{
+    margin-top: 10px;
+    opacity: 0.05;
+}
+
+
+/* -------------------인사말------------------------ */
+
+/* 인사말 섹션 스타일 수정 */
+
+.greeting-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.greeting-line {
+    width: 2px;
+    height: 50px;
+    background-color: #333;
+    margin: 0 auto 20px;
+}
+
+.greeting-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.greeting-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 50px;
+    max-width: 1200px;  /* 추가 */
+    margin: 0 auto 50px;  /* 추가 */
+}
+
+.greeting-image {
+    flex: 1;
+    max-width: 600px;  /* 300px에서 250px로 줄임 */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.greeting-image img {
+    width: 100%;
+    height: 500px;  /* 200px로 줄임 */
+    object-fit: cover;
+}
+
+.greeting-content {
+    text-align: center;
+    line-height: 1.8;
+    color: #555;
+    font-size: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.greeting-content p {
+    margin: 8px 0;
+    text-align: center;
+}
+
+.signature {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.company-name {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.ceo-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    font-family: '궁서', serif;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .greeting-title {
+        font-size: 2rem;
+    }
+    
+    .greeting-images {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .greeting-image {
+        max-width: 100%;
+    }
+    
+    .greeting-content {
+        font-size: 0.9rem;
+    }
+    
+    .ceo-name {
+        font-size: 1.5rem;
+    }
+}
+
+/* ------------------제품 링크---------------------------------------- */
+
+
+/* -----------------------제일하단-------------------- */
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.footer-contact h3 {
+    font-size: 24px;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.footer-contact .phone {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.footer-contact p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.kakao-btn, .faq-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.kakao-btn {
+    background-color: #fee500;
+    color: #000;
+}
+
+.kakao-btn:hover {
+    background-color: #fdd835;
+}
+
+.faq-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.faq-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.menu-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-column h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+.menu-column a {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+    line-height: 1.4;
+}
+
+.menu-column a:hover {
+    color: #000;
+}
+
+.footer-logo {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-info {
+    padding-top: 20px;
+}
+
+.info-links {
+    margin-bottom: 15px;
+}
+
+.info-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.info-links a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-info p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+.copyright {
+    margin-top: 20px !important;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+/* 푸터 반응형 */
+@media (max-width: 1024px) {
+    .footer-menu {
+        flex-wrap: wrap;
+        gap: 30px 20px;
+    }
+    
+    .menu-column {
+        flex: 0 0 calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    /* 768px 이하에서 footer-menu 숨김 */
+    .footer-menu {
+        display: none;
+    }
+    
+    .footer-buttons {
+        width: 100%;
+    }
+    
+    .kakao-btn, .faq-btn {
+        flex: 1;
+    }
+}
+
+
+/* ========== 장바구니 아이콘 스타일 ========== */
+.wishlist-link {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    z-index: 1000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-icon {
+    font-size: 24px;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.wishlist-link:hover .wishlist-icon {
+    transform: scale(1.10);
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .wishlist-link {
+        right: 20px;
+        top: 20px;
+    }
+    
+    .wishlist-icon {
+        font-size: 30px;
+    }
+    
+    .wishlist-count {
+        font-size: 11px;
+        padding: 3px 6px;
+        min-width: 20px;
+        height: 20px;
+    }
+}

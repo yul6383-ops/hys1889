@@ -1,0 +1,585 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.메뉴 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.상단 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logotext {
+    font-size: 32px;
+    font-weight: bold;
+    color: rgba(122, 66, 9, 0.719);
+}
+
+.logotext1 {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(122, 66, 9, 0.719);
+}
+
+
+
+.메뉴2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.boxtext {
+    display: flex;
+    justify-content: center;
+    gap: clamp(15px, 3vw, 40px);
+    margin-top: 10px;
+    font-size: clamp(14px, 1.8vw, 16px);
+    font-weight: bold;
+    color: #333;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+.boxtext a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.boxtext a:hover {
+    color: #666;
+    transform: translateY(-2px);
+}
+
+.boxtext a:visited {
+    color: #333;
+}
+
+.line{
+    width: 100vw;
+    height: 2px;
+    background-color: black;
+}
+
+.top-line{
+    opacity: 0.1;
+}
+
+.bottom-line{
+    margin-top: 10px;
+    opacity: 0.05;
+}
+
+
+/* -------------------인사말------------------------ */
+
+/* contact.CSS 새로 만들기 */
+
+.contact-section {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.contact-line {
+    width: 2px;
+    height: 50px;
+    background-color: #333;
+    margin: 0 auto 20px;
+}
+
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 60px;
+}
+
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #333;
+    margin-bottom: 20px;
+}
+
+.board-table th {
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.board-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.board-table tbody tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.board-footer {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.write-btn {
+    padding: 10px 30px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.search-select, .search-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-input {
+    width: 300px;
+}
+
+.search-btn {
+    padding: 10px 30px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.write-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 2px solid #333;
+    margin-bottom: 20px;
+}
+
+.write-table th {
+    width: 150px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.write-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.write-table input[type="text"],
+.write-table input[type="password"],
+.write-table textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.cancel-btn, .submit-btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: #999;
+    color: white;
+}
+
+.submit-btn {
+    background-color: #333;
+    color: white;
+}
+
+/* ------------------제품 링크---------------------------------------- */
+
+/* order.css에 추가 */
+
+.admin-btn {
+    padding: 10px 30px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.admin-btn:hover {
+    background-color: #c82333;
+}
+
+.delete-btn {
+    padding: 5px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* -----------------------제일하단-------------------- */
+
+.footer {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 40px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+}
+
+.footer-contact h3 {
+    font-size: 24px;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.footer-contact .phone {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.footer-contact p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.kakao-btn, .faq-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.kakao-btn {
+    background-color: #fee500;
+    color: #000;
+}
+
+.kakao-btn:hover {
+    background-color: #fdd835;
+}
+
+.faq-btn {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.faq-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 30px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.menu-column {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-column h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    color: #333;
+    line-height: 1.4;
+}
+
+.menu-column a {
+    display: block;
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+    line-height: 1.4;
+}
+
+.menu-column a:hover {
+    color: #000;
+}
+
+.footer-logo {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 40px;
+}
+
+.footer-info {
+    padding-top: 20px;
+}
+
+.info-links {
+    margin-bottom: 15px;
+}
+
+.info-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.info-links a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-info p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+    margin: 8px 0;
+}
+
+.copyright {
+    margin-top: 20px !important;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+/* 푸터 반응형 */
+@media (max-width: 1024px) {
+    .footer-menu {
+        flex-wrap: wrap;
+        gap: 30px 20px;
+    }
+    
+    .menu-column {
+        flex: 0 0 calc(33.333% - 14px);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    /* 768px 이하에서 footer-menu 숨김 */
+    .footer-menu {
+        display: none;
+    }
+    
+    .footer-buttons {
+        width: 100%;
+    }
+    
+    .kakao-btn, .faq-btn {
+        flex: 1;
+    }
+}
+/* -------------------------------------------------- */
+/* order-view 수정 삭제 버튼 개선 */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.button-group button {
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+/* 목록 버튼 */
+.cancel-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* 수정 버튼 */
+.edit-btn {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+}
+
+/* 삭제 버튼 */
+.submit-btn {
+    background-color: #dc3545 !important;
+    color: white !important;
+}
+
+.submit-btn:hover {
+    background-color: #c82333 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(220,53,69,0.3);
+}
+
+/* 등록 완료 버튼 (수정 완료 버튼) */
+.button-group .submit-btn[type="submit"] {
+    background-color: #28a745 !important;
+}
+
+.button-group .submit-btn[type="submit"]:hover {
+    background-color: #218838 !important;
+}
+
+
+/* ========== 장바구니 아이콘 스타일 ========== */
+.wishlist-link {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    z-index: 1000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-icon {
+    font-size: 24px;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.wishlist-link:hover .wishlist-icon {
+    transform: scale(1.10);
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .wishlist-link {
+        right: 20px;
+        top: 20px;
+    }
+    
+    .wishlist-icon {
+        font-size: 30px;
+    }
+    
+    .wishlist-count {
+        font-size: 11px;
+        padding: 3px 6px;
+        min-width: 20px;
+        height: 20px;
+    }
+}

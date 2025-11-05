@@ -1,0 +1,57 @@
+/* ========== 장바구니 아이콘 스타일 ========== */
+.wishlist-link {
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    z-index: 1000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-icon {
+    font-size: 24px;
+    transition: transform 0.3s;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.wishlist-link:hover .wishlist-icon {
+    transform: scale(1.10);
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    min-width: 22px;
+    height: 22px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .wishlist-link {
+        right: 20px;
+        top: 20px;
+    }
+    
+    .wishlist-icon {
+        font-size: 30px;
+    }
+    
+    .wishlist-count {
+        font-size: 11px;
+        padding: 3px 6px;
+        min-width: 20px;
+        height: 20px;
+    }
+}

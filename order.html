@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+    initial-scale=1.0, user-scalable=no, 
+    maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="order.css">
+    <title>Document</title>
+</head>
+<body>
+
+<a href="wishlist.html" class="wishlist-link">
+    <span class="wishlist-icon">🛒</span>
+    <span class="wishlist-count">0</span>
+</a>
+
+
+<!-- -------------------맨위 로고 이미--------------------------------------------- -->
+
+    <div class="메뉴">
+    
+        <div class="상단">
+             <a href="index.html">
+            <img src="images/HYSLOGS.png" alt="하예성합판 로고" class="logo">
+        </a>
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext">하 예 성 합 판</div>
+            </a>
+        
+            <a href="index.html" style="text-decoration: none; color: inherit;">
+                <div class="logotext1">interior materials</div>
+            </a>
+        
+        </div>
+    
+</div>
+<!-- -----------------로고 밑---------------------------------------------------- -->
+<div class="메뉴2">
+    
+    <div class="line top-line"></div>
+    
+    <div class="boxtext">
+        <a href="brand.html">업체소개</a>
+        <a href="JEPOM.html">제품안내</a>
+        <a href="goji.html">공지사항</a>
+        <a href="root.html">오시는길</a>
+        <a href="order.html">문의하기</a>
+    </div>
+   
+    <div class="line bottom-line"></div>    
+
+</div>
+<!-- ------------------------------견적 문의----------------------------------- -->
+
+<section class="contact-section">
+    <div class="contact-line"></div>
+    <h2 class="contact-title">견적문의</h2>
+    <p class="contact-subtitle">질문에 대한 궁금증을 해결해드립니다.</p>
+    
+    <div class="board-container">
+        <table class="board-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일자</th>
+                    <th>조회수</th>
+                </tr>
+            </thead>
+            <tbody id="postList"></tbody>
+        </table>
+        
+        <div class="board-footer">
+            <button class="write-btn" onclick="location.href='order-1.html'">쓰기</button>
+        </div>
+        
+        <div class="search-container">
+            <select class="search-select">
+                <option>제목</option>
+            </select>
+            <input type="text" class="search-input">
+            <button class="search-btn">검색</button>
+        </div>
+    </div>
+</section>
+
+<div class="board-footer">
+    <button class="write-btn" id="adminToggleBtn" onclick="toggleAdminMode()">관리자 로그인</button>
+   
+</div>
+
+
+
+<!-- ------------------------------------제일 하단------------------------------- -->
+
+<!-- 푸터 -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3>고객센터 <span class="phone">010-7654-6766, 010-9307-1889</span></h3>
+                <p>평일 오전 6시30분 ~ 오후 5시 (일요일 및 공휴일 휴무)</p>
+            </div>
+            <div class="footer-buttons">
+                <button class="kakao-btn">상담하기 💬</button>
+                <button class="faq-btn">FAQ/문의하기</button>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <div class="menu-column">
+                <h4>브랜드 소개</h4>
+                <a href="#">하예성합판 소개</a>
+                <a href="#">대표인사말</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[잔체 중문 혜택] 뭉치면 싸진다!</h4>
+                <a href="#">이벤트 안내 보기</a>
+                <a href="#">단체 공동구매 신청하기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>#[영림 회원 전용]30주년 문짝할인 이벤트!</h4>
+                <a href="#">혜택 자세히 보기</a>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>영림 보급형대량세일</h4>
+                <a href="#">상품보기</a>
+            </div>
+            <div class="menu-column">
+                <h4>합판 자재 문의</h4>
+            </div>
+            <div class="menu-column">
+                <h4>서비스</h4>
+                <a href="#">공지사항</a>
+                <a href="#">자주묻는질문</a>
+                <a href="#">기획전</a>
+                <a href="#">이벤트</a>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-links">
+                <a href="#">공지사항</a> | 
+                <a href="#">이용약관</a> | 
+                <a href="#">개인정보처리방침</a> | 
+                <a href="#">하예성합판보험</a>
+            </div>
+            <p>상호: 하예성합판 | 대표: 이희열 | 주소: 경기도 김포시 고촌읍 태리로37 2층 </p>
+            <p>대표번호: 010-7654-6766 | 이메일: eh1048@naver.com | 팩스: 사업자등록번호: 675-15-02806 | 통신판매업신고번호: 미정</p>
+            <p class="copyright">Copyright @ 하예성합판 All Rights Reserved.<br>Powered by Eoding Corp.</p>
+        </div>
+    </div>
+</footer>
+
+<script type="module" src="order.js"></script>
+<script src="wishlist-common.js"></script>
+
+
+</body>
+</html>

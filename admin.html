@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="hys.CSS">
+    <link rel="stylesheet" href="admin.css">
+    <title>관리자 페이지 - 하예성합판</title>
+</head>
+<body>
+
+<!-- -------------------맨위 로고 이미--------------------------------------------- -->
+<div class="메뉴">
+    <div class="상단">
+        <a href="index.html">
+            <img src="images/HYSLOGS.png" alt="하예성합판 로고" class="logo">
+        </a>
+        
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <div class="logotext">하 예 성 합 판</div>
+        </a>
+        
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+            <div class="logotext1">interior materials</div>
+        </a>
+    </div>
+</div>
+
+<!-- -----------------로고 밑---------------------------------------------------- -->
+<div class="메뉴2">
+    <div class="line top-line"></div>
+    
+    <div class="boxtext">
+        <a href="brand.html">업체소개</a>
+        <a href="JEPOM.html">제품안내</a>
+        <a href="goji.html">공지사항</a>
+        <a href="root.html">오시는길</a>
+        <a href="order.html">문의하기</a>
+    </div>
+   
+    <div class="line bottom-line"></div>    
+</div>
+
+<!-- 관리자 컨텐츠 영역 -->
+<div class="admin-container">
+    <!-- 알림 메시지 -->
+    <div id="alertBox" class="alert"></div>
+
+    <!-- 관리자 헤더 -->
+    <div class="admin-header-box">
+        <h1>⚙️ 관리자 페이지</h1>
+        <p>제품 관리 시스템</p>
+        <button class="logout-btn" onclick="logout()">제품 페이지로</button>
+    </div>
+
+    <!-- 탭 메뉴 -->
+    <div class="admin-tabs">
+        <button class="tab-btn active" onclick="switchTab('dashboard')">📊 대시보드</button>
+        <button class="tab-btn" onclick="switchTab('add')">➕ 제품 추가</button>
+        <button class="tab-btn" onclick="switchTab('manage')">📦 제품 관리</button>
+    </div>
+
+    <!-- 대시보드 탭 -->
+    <div id="dashboard" class="tab-content active">
+        <div class="stats-grid">
+            <div class="stat-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3>전체 제품</h3>
+                <div class="stat-number" id="totalProducts">0</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <h3>합판 제품</h3>
+                <div class="stat-number" id="hapProducts">0</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                <h3>도어 제품</h3>
+                <div class="stat-number" id="doorProducts">0</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                <h3>기타 제품</h3>
+                <div class="stat-number" id="otherProducts">0</div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>최근 추가된 제품</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>제품명</th>
+                        <th>코드</th>
+                        <th>카테고리</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
+                <tbody id="recentProductsList">
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 40px;">제품이 없습니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 제품 추가 탭 -->
+    <div id="add" class="tab-content">
+        <div class="form-section">
+            <h2>새 제품 추가</h2>
+            <form id="addProductForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>대분류 *</label>
+                        <select id="mainCategory" required onchange="updateSubCategories()">
+                            <option value="">선택하세요</option>
+                            <option value="합판">합판</option>
+                            <option value="MDF">MDF</option>
+                            <option value="각목">각목</option>
+                            <option value="구조목">구조목</option>
+                            <option value="도어">도어</option>
+                            <option value="몰딩">몰딩</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>소분류 *</label>
+                        <select id="subCategory" required>
+                            <option value="">대분류를 먼저 선택하세요</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>제품명 *</label>
+                        <input type="text" id="productName" placeholder="예: 일반합판 18T" required>
+                    </div>
+                    <div class="form-group">
+                        <label>제품코드 *</label>
+                        <input type="text" id="productCode" placeholder="예: HAP-001" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>제품 설명</label>
+                    <textarea id="productDescription" placeholder="제품에 대한 자세한 설명을 입력하세요"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>규격</label>
+                        <input type="text" id="productSpec" placeholder="예: 폭 600~955 / 높이 1900~2070 (mm)">
+                    </div>
+                    <div class="form-group">
+                        <label>NEW 뱃지</label>
+                        <select id="productBadge">
+                            <option value="false">없음</option>
+                            <option value="true">NEW 표시</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>제품 이미지 *</label>
+                    <div class="image-upload-area" onclick="document.getElementById('imageInput').click()">
+                        <p style="font-size: 40px; margin-bottom: 10px;">📷</p>
+                        <p>클릭하여 이미지 업로드</p>
+                        <p style="font-size: 12px; color: #7f8c8d; margin-top: 5px;">JPG, PNG 파일 (최대 5MB)</p>
+                    </div>
+                    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                    <div class="image-preview" id="imagePreview"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">제품 추가하기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 제품 관리 탭 -->
+    <div id="manage" class="tab-content">
+        <div class="form-section">
+            <h2>제품 목록</h2>
+            
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="제품명 또는 코드로 검색...">
+                <select id="filterCategory">
+                    <option value="all">전체 카테고리</option>
+                    <option value="합판">합판</option>
+                    <option value="MDF">MDF</option>
+                    <option value="각목">각목</option>
+                    <option value="구조목">구조목</option>
+                    <option value="도어">도어</option>
+                    <option value="몰딩">몰딩</option>
+                </select>
+            </div>
+
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>이미지</th>
+                        <th>제품명</th>
+                        <th>코드</th>
+                        <th>대분류</th>
+                        <th>소분류</th>
+                        <th>상태</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody id="productsList">
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px;">제품이 없습니다. 제품을 추가해주세요.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- 푸터 -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h3>고객센터 <span class="phone">010-7654-6766, 010-9307-1889</span></h3>
+                <p>평일 오전 6시30분 ~ 오후 5시 (일요일 및 공휴일 휴무)</p>
+            </div>
+            <div class="footer-buttons">
+                <button class="kakao-btn">상담하기 💬</button>
+                <button class="faq-btn" onclick="location.href='order.html'">FAQ/문의하기</button>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <div class="info-links">
+                <a href="#">공지사항</a> | 
+                <a href="#">이용약관</a> | 
+                <a href="#">개인정보처리방침</a> | 
+                <a href="#">하예성합판보험</a>
+            </div>
+            <p>상호: 하예성합판 | 대표: 이희열 | 주소: 경기도 김포시 고촌읍 태리로37 2층 </p>
+            <p>대표번호: 010-7654-6766 | 이메일: eh1048@naver.com | 팩스: 사업자등록번호: 675-15-02806 | 통신판매업신고번호: 미정</p>
+            <p class="copyright">Copyright @ 하예성합판 All Rights Reserved.<br>Powered by Eoding Corp.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="admin.js"></script>
+</body>
+</html>
