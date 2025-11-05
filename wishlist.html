@@ -159,7 +159,55 @@
             color: #999;
             margin-bottom: 15px;
         }
-        
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 8px 0;
+            background-color: #f8f8f8;
+            border-radius: 5px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background-color: white;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background-color: #333;
+            color: white;
+            border-color: #333;
+        }
+
+        .quantity-btn:disabled {
+            background-color: #f0f0f0;
+            color: #ccc;
+            cursor: not-allowed;
+            border-color: #e0e0e0;
+        }
+
+        .quantity-display {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            min-width: 40px;
+            text-align: center;
+        }
+
         .inquiry-btn {
             width: 100%;
             padding: 12px 0;
@@ -622,6 +670,11 @@ function displayWishlist() {
                     <div class="wishlist-item-category">${item.mainCategory} / ${item.category}</div>
                     <div class="wishlist-item-name">${item.name}</div>
                     <div class="wishlist-item-code">${item.code}</div>
+                    <div class="quantity-control" onclick="event.stopPropagation()">
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, -1)" ${(item.quantity || 1) <= 1 ? 'disabled' : ''}>−</button>
+                        <span class="quantity-display">${item.quantity || 1}</span>
+                        <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -635,6 +688,21 @@ function removeFromWishlist(index) {
         localStorage.setItem('wishlist', JSON.stringify(wishlist));
         displayWishlist();
     }
+}
+
+// 수량 업데이트
+function updateQuantity(index, change) {
+    if (!wishlist[index]) return;
+
+    const currentQty = wishlist[index].quantity || 1;
+    const newQty = currentQty + change;
+
+    // 수량은 최소 1개
+    if (newQty < 1) return;
+
+    wishlist[index].quantity = newQty;
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    displayWishlist();
 }
 
 // 전체 삭제
@@ -817,17 +885,18 @@ function formatKakaoMessage(products, customerInfo) {
     message += `   이름: ${customerInfo.name}\n`;
     message += `   연락처: ${customerInfo.phone}\n\n`;
     message += `📦 요청 제품 (총 ${products.length}개)\n\n`;
-    
+
     products.forEach((item, index) => {
         message += `${index + 1}. ${item.name}\n`;
         message += `   📦 제품코드: ${item.code}\n`;
-        message += `   📁 카테고리: ${item.mainCategory} / ${item.category}\n\n`;
+        message += `   📁 카테고리: ${item.mainCategory} / ${item.category}\n`;
+        message += `   🔢 수량: ${item.quantity || 1}개\n\n`;
     });
-    
+
     message += `━━━━━━━━━━━━━━━\n`;
     message += `⏰ 문의시간: ${new Date().toLocaleString('ko-KR')}\n`;
     message += `🌐 하예성합판 웹사이트\n`;
-    
+
     return message;
 }
 
